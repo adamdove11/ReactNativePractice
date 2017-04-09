@@ -8,14 +8,17 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  TabBarIOS,
   Text,
   View
 } from 'react-native';
 import MapView from 'react-native-maps';
 
 
+
+
 export default class ReactNativePractice extends Component {
-  render() {
+  /*render() {
     return (
       <View style={styles.container}>
         <MapView style={styles.map}
@@ -27,6 +30,43 @@ export default class ReactNativePractice extends Component {
     }}/>
       </View>
     );
+  }*/
+
+  constructor() {
+  super();
+  this.state = {
+    selectedTab: 0
+  };
+}
+
+handleTabPress(tab) {
+  this.setState({ selectedTab: tab })
+}
+
+  render() {
+    return (
+    <TabBarIOS>
+  <TabBarIOS.Item
+    systemIcon="favorites"
+    selected={this.state.selectedTab === 0}
+    onPress={this.handleTabPress.bind(this, 0)}
+  >
+    <View style={styles.view}>
+      <Text style={styles.text}>Favorite Places</Text>
+    </View>
+  </TabBarIOS.Item>
+  <TabBarIOS.Item
+    title="Place"
+    icon={require('./assets/pin.png')}
+    selected={this.state.selectedTab === 1}
+    onPress={this.handleTabPress.bind(this, 1)}
+  >
+    <View style={styles.view}>
+      <Text style={styles.text}>Add Place</Text>
+    </View>
+  </TabBarIOS.Item>
+</TabBarIOS>
+      );
   }
 }
 
@@ -53,6 +93,15 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+  },
+  text: {
+    textAlign: 'center',
+    color: '#333333',
+    marginTop: 50,
+  },
+  view: {
+    backgroundColor: '#fed',
+    flex: 1
   }
 });
 
