@@ -44,7 +44,7 @@ export default class PlaceMap extends Component {
       <MapView
         style={styles.map}
         region={this.region}
-        annotations={annotations}
+        annotations={this.props.annotations}
       />
     );
   }

@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import PlaceMap from './place_map';
+import AddPlace from './add_place.js';
 
 
 
@@ -61,6 +62,13 @@ handleTabPress(tab) {
   this.setState({ selectedTab: tab })
 }
 
+handleAddPlace(annotation) {
+  const annotations = this.state.annotations.slice();
+  annotations.push(annotation);
+  this.setState({ annotations });
+}
+
+
   render() {
     return (
     <TabBarIOS>
@@ -78,7 +86,7 @@ handleTabPress(tab) {
     onPress={this.handleTabPress.bind(this, 1)}
   >
     <View style={styles.view}>
-      <Text style={styles.text}>Add Place</Text>
+      <AddPlace onAddPlace={this.handleAddPlace.bind(this)}  />
     </View>
   </TabBarIOS.Item>
 </TabBarIOS>
