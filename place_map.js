@@ -10,7 +10,18 @@ import {
 } from 'react-native';
 
 export default class PlaceMap extends Component {
-  constructor(props) {
+  centerOnUser(){
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      this.refs.map.refs.node.animateToCoordinate(position.coords)
+    },
+    (error) => alert(error.message),
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+  );
+}
+
+
+ /* constructor(props) {
     super(props);
     this.region = {
       latitude: 38.8977,
@@ -19,7 +30,7 @@ export default class PlaceMap extends Component {
       longitudeDelta: 0.2,
       title: "White House"
     }
-  }
+  }*/
 
     handleNavigation(la, lo) {
     const rla = this.region.latitude;
@@ -45,6 +56,9 @@ export default class PlaceMap extends Component {
         style={styles.map}
         region={this.region}
         annotations={this.props.annotations}
+        showsUserLocation={true}
+        followsUserLocation={true}
+        provider={"google"}
       />
     );
   }
