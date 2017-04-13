@@ -21,7 +21,7 @@ export default class PlaceMap extends Component {
 }
 
 
- /* constructor(props) {
+ constructor(props) {
     super(props);
     this.region = {
       latitude: 38.8977,
@@ -30,7 +30,7 @@ export default class PlaceMap extends Component {
       longitudeDelta: 0.2,
       title: "White House"
     }
-  }*/
+  }
 
     handleNavigation(la, lo) {
     const rla = this.region.latitude;
