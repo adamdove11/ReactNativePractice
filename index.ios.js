@@ -34,23 +34,13 @@ export default class ReactNativePractice extends Component {
     );
   }*/
 
-  centerOnUser(){
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      this.refs.map.refs.node.animateToCoordinate(position.coords)
-    },
-    (error) => alert(error.message),
-    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-  );
-}
-
 
   constructor() {
     super();
     this.state = {
       selectedTab: 0,
       annotations: [
-        {
+        /*{
           title: 'Smithsonian Museum',
           latitude: 38.8980,
           longitude: -77.0230
@@ -64,7 +54,7 @@ export default class ReactNativePractice extends Component {
           title: 'Arlington',
           latitude: 38.8783,
           longitude: -77.0687
-        }
+        }*/
       ]
     };
   }

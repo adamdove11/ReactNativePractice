@@ -10,18 +10,10 @@ import {
 } from 'react-native';
 
 export default class PlaceMap extends Component {
-  centerOnUser(){
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      this.refs.map.refs.node.animateToCoordinate(position.coords)
-    },
-    (error) => alert(error.message),
-    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-  );
-}
 
+  
 
- constructor(props) {
+constructor(props) {
     super(props);
     this.region = {
       latitude: 38.8977,
@@ -54,7 +46,6 @@ export default class PlaceMap extends Component {
     return (
       <MapView
         style={styles.map}
-        region={this.region}
         annotations={this.props.annotations}
         showsUserLocation={true}
         followsUserLocation={true}

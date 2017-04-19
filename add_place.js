@@ -22,6 +22,8 @@ export default class AddPlace extends Component {
     };
   }
 
+  
+
   handleAddPlace() {
 
     const { title, latitude, longitude } = this.state;
